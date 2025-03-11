@@ -11,9 +11,9 @@ from cyksuid._ksuid import (
     STRING_ENCODED_LENGTH,
     Empty,
     Ksuid,
+    ksuid as _new_ksuid,
+    parse as _new_parse,
 )
-from cyksuid._ksuid import ksuid as _new_ksuid
-from cyksuid._ksuid import parse as _new_parse
 
 
 class KSUID(Ksuid):
