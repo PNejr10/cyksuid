@@ -19,17 +19,8 @@ class Ksuid:
     PAYLOAD_LENGTH_IN_BYTES: int
     TIMESTAMP_LENGTH_IN_BYTES: int
 
-    @overload
-    def __init__(self) -> None:
-        """Create a new KSUID with current timestamp and generated random payload."""
-    @overload
-    def __init__(self, raw: hints.Bytes) -> None:
-        """Create a new KSUID from raw bytes."""
-    @overload
-    def __init__(self, timestamp: hints.IntOrFloat, payload: hints.Bytes) -> None:
-        """Create a new KSUID from specified timestamp in milliseconds and payload."""
-    @overload
-    def __init__(self, **kwargs: Any) -> None: ...
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Create a new KSUID."""
     @classmethod
     def from_timestamp(cls: Type[SelfT], timestamp: hints.IntOrFloat) -> SelfT:
         """Create a new KSUID with specified timestamp and generated random payload."""
@@ -78,12 +69,7 @@ def ksuid(
     rand_func: Optional[hints.RandFunc] = None,
     ksuid_cls: Optional[Type[SelfT]] = None,
 ) -> SelfT:
-    """Factory to construct KSUID objects.
-
-    :param time_func: function for generating time, defaults to time.time.
-    :param rand_func: function for generating random bytes, defaults to os.urandom.
-    :param ksuid_cls: class to use for KSUID, defaults to Ksuid
-    """
+    """Factory to construct KSUID objects."""
 
 def parse(s: hints.StrOrBytes, ksuid_cls: Optional[Type[SelfT]] = None) -> SelfT:
     """Parse KSUID from base62 encoded form."""
