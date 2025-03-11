@@ -1,6 +1,6 @@
 import functools
 from datetime import datetime
-from typing import Any, Callable, Optional, Type, TypeVar, overload
+from typing import Any, Optional, Type, TypeVar
 
 from cyksuid import hints
 
